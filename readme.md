@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="Icon/MainBanner.png" alt="Custom DNS Main Banner">
-</p>
 
 <h1>
   <img src="Icon/1x/Emblem.png" width="50" height="50" align="center" >
