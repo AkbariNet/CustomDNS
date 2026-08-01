@@ -43,4 +43,4 @@ Custom DNS is a lightweight and modern Windows application that allows you to sa
 
 | Home | DNS has been changed | DNS List |
 |------|----------|----------|
-| ![](screenshots/MainAPP.png) | ![](screenshots/MainAPPConnected.png) | ![](screenshots/MainAPPConnectedExpanded.png) |
+| ![](Screenshots/MainAPP.png) | ![](Screenshots/MainAPPConnected.png) | ![](Screenshots/MainAPPConnectedExpanded.png) |
