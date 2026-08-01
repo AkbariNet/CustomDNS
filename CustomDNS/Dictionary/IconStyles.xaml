@@ -1,0 +1,47 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Geometry x:Key="EmblemGeometry">F1 M1000,1000z M0,0z M975.7,654.28L654.26,975.72C481.26,1031.67 283.8,990.94 146.42,853.56 6.72,713.85 -33.02,511.99 27.22,336.93L336.95,27.2C426.69,-3.67,523.48,-8.27,615.34,13.41L314.37,314.38C211.88,416.89 211.88,583.12 314.37,685.62 416.88,788.13 583.11,788.13 685.61,685.62L986.58,384.66C1007.57,473.53,1003.94,567.01,975.71,654.28z</Geometry>
+  <DrawingGroup x:Key="EmblemDrawingGroup" ClipGeometry="M0,0 V1000 H1000 V0 H0 Z">
+    <DrawingGroup.Transform>
+      <TranslateTransform X="0.0024237602483481169" Y="0.0045833545736968517" />
+    </DrawingGroup.Transform>
+    <GeometryDrawing Brush="#FFF15025" Geometry="{StaticResource EmblemGeometry}" />
+    <DrawingGroup Opacity="1">
+      <DrawingGroup.ClipGeometry>
+        <PathGeometry FillRule="Nonzero" Figures="M975.7,654.28L654.26,975.72C481.26,1031.67 283.8,990.94 146.42,853.56 6.72,713.85 -33.02,511.99 27.22,336.93L336.95,27.2C426.69,-3.67,523.48,-8.27,615.34,13.41L314.37,314.38C211.88,416.89 211.88,583.12 314.37,685.62 416.88,788.13 583.11,788.13 685.61,685.62L986.58,384.66C1007.57,473.53,1003.94,567.01,975.71,654.28z" />
+      </DrawingGroup.ClipGeometry>
+      <GeometryDrawing>
+        <GeometryDrawing.Brush>
+          <SolidColorBrush Color="#FF191919" Opacity="0.15" />
+        </GeometryDrawing.Brush>
+        <GeometryDrawing.Geometry>
+          <EllipseGeometry RadiusX="133.83" RadiusY="133.83" Center="498.65,499.35" />
+        </GeometryDrawing.Geometry>
+      </GeometryDrawing>
+      <GeometryDrawing>
+        <GeometryDrawing.Brush>
+          <SolidColorBrush Color="#FF191919" Opacity="0.15" />
+        </GeometryDrawing.Brush>
+        <GeometryDrawing.Geometry>
+          <EllipseGeometry RadiusX="214.13" RadiusY="214.13" Center="498.65,499.35" />
+        </GeometryDrawing.Geometry>
+      </GeometryDrawing>
+      <GeometryDrawing>
+        <GeometryDrawing.Brush>
+          <SolidColorBrush Color="#FF191919" Opacity="0.15" />
+        </GeometryDrawing.Brush>
+        <GeometryDrawing.Geometry>
+          <EllipseGeometry RadiusX="342.61" RadiusY="342.61" Center="498.65,499.35" />
+        </GeometryDrawing.Geometry>
+      </GeometryDrawing>
+      <GeometryDrawing>
+        <GeometryDrawing.Brush>
+          <SolidColorBrush Color="#FF191919" Opacity="0.1" />
+        </GeometryDrawing.Brush>
+        <GeometryDrawing.Geometry>
+          <EllipseGeometry RadiusX="439.6" RadiusY="439.6" Center="498.65,499.35" />
+        </GeometryDrawing.Geometry>
+      </GeometryDrawing>
+    </DrawingGroup>
+  </DrawingGroup>
+  <DrawingImage x:Key="EmblemDrawingImage" Drawing="{StaticResource EmblemDrawingGroup}" />
+</ResourceDictionary>

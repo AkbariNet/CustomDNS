@@ -1,0 +1,332 @@
+﻿<Window x:Class="CustomDNS.Lobby"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:Extra_ConfigController="clr-namespace:CustomDNS.Extra.ConfigControl"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Icon="./Dictionary/Icon.ico"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomDNS" xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        WindowStyle="ThreeDBorderWindow"
+    AllowsTransparency="False" 
+        
+        Style="{StaticResource MaterialDesignWindow}"
+        mc:Ignorable="d" 
+          x:Name="lobby"
+        Title="Custom DNS" Height="500" Width="320" ResizeMode="NoResize">
+
+    
+    <Window.Resources>
+
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary x:Name="IconStyles" Source="Dictionary/IconStyles.xaml"/>
+                
+            </ResourceDictionary.MergedDictionaries>
+            <Storyboard x:Key="AdvanceModeIn" x:Name="AdvanceModeIn" >
+
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="lobby" Storyboard.TargetProperty="Width">
+
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="750">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <CircleEase EasingMode="EaseOut"/>
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="AdvanceModeOut" x:Name="AdvanceModeOut" >
+
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="lobby" Storyboard.TargetProperty="Width">
+
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="320">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <CircleEase EasingMode="EaseOut"/>
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+
+
+            <BlurEffect x:Key="BlurAnimEffect" Radius="0" />
+
+
+            <Storyboard x:Key="AddDNSSPopUpIn" x:Name="AddDNSPopUpIn" >
+                <DoubleAnimation
+      Storyboard.TargetName="AllContent"
+      Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)"
+      To="30" Duration="0:0:0.3" />
+
+            </Storyboard>
+
+            <Storyboard x:Key="AddDNSPopUpFadeIn" x:Name="AddDNSPopUpFadeIn" >
+
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="AddDNSPopUp" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <CircleEase EasingMode="EaseOut"/>
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+
+            <Storyboard x:Key="AddDNSPopUpOut" x:Name="AddDNSPopUpOut" Completed="AddDNSPopUpOut_Completed">
+                <DoubleAnimation
+      Storyboard.TargetName="AllContent"
+      Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)"
+      To="0" Duration="0:0:0.3" />
+
+            </Storyboard>
+
+            <Storyboard x:Key="AddDNSPopUpFadeOut" x:Name="AddDNSPopUpFadeOut" >
+
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="AddDNSPopUp" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <CircleEase EasingMode="EaseOut"/>
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+
+
+
+            <Storyboard x:Key="AboutAppPopUpIn" x:Name="AboutAppPopUpIn" >
+                <DoubleAnimation
+      Storyboard.TargetName="AllContent"
+      Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)"
+      To="30" Duration="0:0:0.3" />
+
+            </Storyboard>
+
+            <Storyboard x:Key="AboutAppPopUpFadeIn" x:Name="AboutAppPopUpFadeIn" >
+
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InfoApp" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <CircleEase EasingMode="EaseOut"/>
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+
+            <Storyboard x:Key="AboutAppPopUpOut" x:Name="AboutAppPopUpOut" Completed="AboutAppPopUpOut_Completed">
+                <DoubleAnimation
+      Storyboard.TargetName="AllContent"
+      Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)"
+      To="0" Duration="0:0:0.3" />
+
+            </Storyboard>
+
+            <Storyboard x:Key="AboutAppPopUpFadeOut" x:Name="AboutAppPopUpFadeOut" >
+
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InfoApp" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <CircleEase EasingMode="EaseOut"/>
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+ 
+        </ResourceDictionary>
+      
+    </Window.Resources>
+    <Border Background="{DynamicResource BoldestColor}" >
+        <Grid >
+
+            <Grid x:Name="AllCOntent" Grid.Row="1" Effect="{StaticResource BlurAnimEffect}" >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border x:Name="Contents" Grid.Column="0" CornerRadius="20" Margin="0,20,0,40"  MinWidth="250" MaxWidth="300" HorizontalAlignment="Center" >
+                    <StackPanel>
+                        <Button x:Name="ChangeDNSButton" Click="ChangeDNSButton_Click" Width="100" Height="100" Margin="0,80,0,0">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <!-- همیشه دیده میشه -->
+                                        <Border Width="100" Height="100" Background="{DynamicResource OrangeColor}" CornerRadius="30" Opacity="0.8">
+                                            <Border.Effect>
+                                                <BlurEffect Radius="300" />
+                                            </Border.Effect>
+                                        </Border>
+
+                                        <!-- فقط موقع هاور دیده میشه -->
+                                        <Border x:Name="FocusOfButton" Width="100" Height="100" Visibility="Collapsed"
+                        Background="{DynamicResource OrangeColor}" CornerRadius="30" Opacity="0.8">
+                                            <Border.Effect>
+                                                <BlurEffect Radius="10" />
+                                            </Border.Effect>
+                                        </Border>
+
+                                        <!-- آیکن و قاب اصلی -->
+                                        <Border Width="100" Height="100" Background="{DynamicResource OrangeColor}" CornerRadius="30"/>
+                                        <materialDesign:PackIcon Kind="Power" Foreground="{DynamicResource PrimeryColor}"
+                                         Width="70" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+
+                                    <!-- تریگر برای ماوس -->
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="FocusOfButton" Property="Visibility" Value="Visible"/>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="False">
+                                            <Setter TargetName="FocusOfButton" Property="Visibility" Value="Collapsed"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock x:Name="StatusOfConnection" Margin="50,20,50,0" Style="{DynamicResource BoldStyle}">Disconnected!</TextBlock>
+
+                        <Border Margin="50,50,50,0" Background="{DynamicResource MaterialDesignLightSeparatorBackground}"  CornerRadius="5">
+                            <ComboBox x:Name="ComboOfSelectDNS"  Margin="10" HorizontalContentAlignment="Left">
+                            </ComboBox>
+                        </Border>
+                        <Grid Margin="50,20,50,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="ResetToDefault" Click="ResetToDefault_Click" Content="Reset" Background="{DynamicResource MaterialDesignLightSeparatorBackground}" Grid.Column="0" ></Button>
+                            <Button Click="AdvanceMode_Click" x:Name="AdvanceMode" Content="Advance" Background="{DynamicResource MaterialDesignLightSeparatorBackground}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" ></Button>
+                        </Grid>
+
+                    </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource BoldestExtraColor}" Grid.Column="1" CornerRadius="20" Margin="0,20,20,40">
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="60px"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <ScrollViewer  Foreground="{DynamicResource OrangeColor}"  Margin="20,20,20,0" >
+                            <StackPanel x:Name="StackOfValueOfDns" HorizontalAlignment="Stretch" VerticalAlignment="Top" Opacity="1">
+                            </StackPanel>
+                        </ScrollViewer>
+                        <Button x:Name="AddDNSButton" Click="AddDNSButton_Click" Grid.Row="1" Width="100px" HorizontalAlignment="Right" Margin="0,0,20,10" Content="Add DNS" Background="{DynamicResource OrangeColor}" ></Button>
+
+                        <Button x:Name="AboutAppButton" Click="AboutAppButton_Click" Grid.Row="1" Width="70px" HorizontalAlignment="Right" Margin="0,0,130,10" Content="About" Background="{DynamicResource BoldestColor}" ></Button>
+
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Border x:Name="AddDNSPopUp" Grid.RowSpan="3" Visibility="Collapsed"  Width="280px" Height="420px" Background="{DynamicResource BoldestColor}" CornerRadius="20" BorderThickness="2" BorderBrush="{DynamicResource BoldestExtraColor}" >
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="300" Direction="1" ShadowDepth="0" Opacity="0.3"></DropShadowEffect>
+                </Border.Effect>
+                <StackPanel>
+                    <TextBlock Text="ADD DNS" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" FontSize="12" Style="{DynamicResource ConfigController_TitleStyle}" Opacity=".3"></TextBlock>
+
+                    <Grid Margin="0,20,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"  Width="250px" Height="auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="10px"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="DNS Name: "  HorizontalAlignment="Left" VerticalAlignment="Center"  Style="{DynamicResource ConfigController_TitleStyle}" Margin="0,0,20,0"></TextBlock>
+                        <TextBox x:Name="DNSNAME" TabIndex="0" Height="50px" Grid.Row="2" TextAlignment="Center"  VerticalContentAlignment="Center" Style="{DynamicResource Round}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="auto" Background="{DynamicResource BoldestExtraColor}" LostFocus="DNSNAME_LostFocus"></TextBox>
+                    </Grid>
+                    <Grid Margin="0,20,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"  Width="250px" Height="auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="10px"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Preferred DNS: "  HorizontalAlignment="Left" VerticalAlignment="Center"  Style="{DynamicResource ConfigController_TitleStyle}" Margin="0,0,20,0"></TextBlock>
+                        <Grid Grid.Row="2" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" ></ColumnDefinition>
+                                <ColumnDefinition Width="5" ></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="5" ></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="5" ></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="DNS1PART1" TabIndex="1" Height="50px" MaxLength="3" Grid.Column="0" TextAlignment="Center"  VerticalContentAlignment="Center" Style="{DynamicResource Round}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="auto" Background="{DynamicResource BoldestExtraColor}" LostFocus="DNSButtons_LostFocus" KeyUp="DNSButtons_KeyUp" PreviewKeyDown="DNSButtons_KeyDown" PreviewTextInput="DNSButtons_PreviewTextInput"></TextBox>
+                            <TextBox x:Name="DNS1PART2" TabIndex="2" Height="50px" MaxLength="3" Grid.Column="2" TextAlignment="Center"  VerticalContentAlignment="Center" Style="{DynamicResource Round}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="auto" Background="{DynamicResource BoldestExtraColor}" LostFocus="DNSButtons_LostFocus" KeyUp="DNSButtons_KeyUp" PreviewKeyDown="DNSButtons_KeyDown" PreviewTextInput="DNSButtons_PreviewTextInput"></TextBox>
+                            <TextBox x:Name="DNS1PART3" TabIndex="3" Height="50px" MaxLength="3" Grid.Column="4" TextAlignment="Center"  VerticalContentAlignment="Center" Style="{DynamicResource Round}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="auto" Background="{DynamicResource BoldestExtraColor}" LostFocus="DNSButtons_LostFocus" KeyUp="DNSButtons_KeyUp" PreviewKeyDown="DNSButtons_KeyDown" PreviewTextInput="DNSButtons_PreviewTextInput"></TextBox>
+                            <TextBox x:Name="DNS1PART4" TabIndex="4" Height="50px" MaxLength="3" Grid.Column="6" TextAlignment="Center"  VerticalContentAlignment="Center" Style="{DynamicResource Round}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="auto" Background="{DynamicResource BoldestExtraColor}" LostFocus="DNSButtons_LostFocus" KeyUp="DNSButtons_KeyUp" PreviewKeyDown="DNSButtons_KeyDown" PreviewTextInput="DNSButtons_PreviewTextInput"></TextBox>
+                        </Grid>
+                    </Grid>
+                    <Grid Margin="0,20,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"  Width="250px" Height="auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="10px"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Preferred DNS: "  HorizontalAlignment="Left" VerticalAlignment="Center"  Style="{DynamicResource ConfigController_TitleStyle}" Margin="0,0,20,0"></TextBlock>
+                        <Grid Grid.Row="2" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" ></ColumnDefinition>
+                                <ColumnDefinition Width="5" ></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="5" ></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="5" ></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="DNS2PART1" TabIndex="5" MaxLength="3" Height="50px" Grid.Column="0" TextAlignment="Center"  VerticalContentAlignment="Center" Style="{DynamicResource Round}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="auto" Background="{DynamicResource BoldestExtraColor}" LostFocus="DNSButtons_LostFocus" KeyUp="DNSButtons_KeyUp" PreviewKeyDown="DNSButtons_KeyDown" PreviewTextInput="DNSButtons_PreviewTextInput"></TextBox>
+                            <TextBox x:Name="DNS2PART2" TabIndex="6" MaxLength="3" Height="50px" Grid.Column="2" TextAlignment="Center"  VerticalContentAlignment="Center" Style="{DynamicResource Round}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="auto" Background="{DynamicResource BoldestExtraColor}" LostFocus="DNSButtons_LostFocus" KeyUp="DNSButtons_KeyUp" PreviewKeyDown="DNSButtons_KeyDown" PreviewTextInput="DNSButtons_PreviewTextInput"></TextBox>
+                            <TextBox x:Name="DNS2PART3" TabIndex="7" MaxLength="3" Height="50px" Grid.Column="4" TextAlignment="Center"  VerticalContentAlignment="Center" Style="{DynamicResource Round}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="auto" Background="{DynamicResource BoldestExtraColor}" LostFocus="DNSButtons_LostFocus" KeyUp="DNSButtons_KeyUp" PreviewKeyDown="DNSButtons_KeyDown" PreviewTextInput="DNSButtons_PreviewTextInput"></TextBox>
+                            <TextBox x:Name="DNS2PART4" TabIndex="8" MaxLength="3" Height="50px" Grid.Column="6" TextAlignment="Center"  VerticalContentAlignment="Center" Style="{DynamicResource Round}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="auto" Background="{DynamicResource BoldestExtraColor}" LostFocus="DNSButtons_LostFocus" KeyUp="DNSButtons_KeyUp" PreviewKeyDown="DNSButtons_KeyDown" PreviewTextInput="DNSButtons_PreviewTextInput"> </TextBox>
+                        </Grid>
+                    </Grid>
+                    <Grid Margin="25,20,25,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="10px"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="CancelForAddDNSBox" TabIndex="10" Click="CancelForAddDNSBox_Click" Content="Cancel" Background="{DynamicResource MaterialDesignLightSeparatorBackground}" Grid.Column="0" ></Button>
+                        <Button x:Name="ApplyAddDNS" TabIndex="9" Click="ApplyAddDNS_Click" Content="Apply" Background="{DynamicResource OrangeColor}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="2" ></Button>
+                    </Grid>
+                    <Grid Margin="25,10,25,0">
+                        <TextBlock x:Name="ShowError" Text="" HorizontalAlignment="Left" Foreground="{DynamicResource OrangeColor}" TextWrapping="Wrap" TextAlignment="Left"></TextBlock>
+                    </Grid>
+
+                </StackPanel>
+            </Border>
+
+            <Border x:Name="InfoApp" Grid.RowSpan="3" Visibility="Collapsed"  Width="280px" Height="420px" Background="{DynamicResource BoldestColor}" CornerRadius="20" BorderThickness="2" BorderBrush="{DynamicResource BoldestExtraColor}" >
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="300" Direction="1" ShadowDepth="0" Opacity="0.3"></DropShadowEffect>
+                </Border.Effect>
+                <StackPanel Margin="25,5,25,0">
+                    <StackPanel>
+                        <Image Source="{DynamicResource EmblemDrawingImage}" MaxHeight="50" Margin="0,10,0,10" ></Image>
+                        <TextBlock Text="Custom DNS" Style="{DynamicResource BoldStyle}" Margin="5" FontSize="24"></TextBlock>
+                        <TextBlock TextAlignment="Justify" Text="Take your internet experience to the next level with CustomDNS – a lightweight and powerful tool that lets you manage and switch between the world’s best DNS servers effortlessly.
+" TextWrapping="Wrap"  Margin="5" ></TextBlock>
+                        <TextBlock TextAlignment="Justify" FontWeight="Bold" Text="With a clean and user-friendly interface, you can build your own DNS list, select any server with a single click, and apply it instantly." TextWrapping="Wrap"  Margin="10" ></TextBlock>
+                        <TextBlock TextAlignment="Justify" FontWeight="Bold" Text="Key Features:" TextWrapping="Wrap"  Margin="5,10,5,5" ></TextBlock>
+                        <TextBlock TextAlignment="Left"  Text="◉ Easily manage your custom DNS list" TextWrapping="Wrap"  Margin="2" ></TextBlock>
+                        <TextBlock TextAlignment="Left"  Text="◉ One-click DNS switching" TextWrapping="Wrap"  Margin="2" ></TextBlock>
+                        <TextBlock TextAlignment="Left"  Text="◉ Optimized for gaming (reduce ping and lag in online games)" TextWrapping="Wrap"  Margin="2" ></TextBlock>
+                        <TextBlock TextAlignment="Left"  Text="◉ Ideal for workstations and power users (more stable connections)" TextWrapping="Wrap"  Margin="2" ></TextBlock>
+                        <TextBlock TextAlignment="Left"  Text="◉ Modern, minimal design for a smooth experience
+
+" TextWrapping="Wrap"  Margin="2" ></TextBlock>
+                    </StackPanel>
+                    <Grid Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="10px"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="CancelForAbout" Click="CancelForAbout_Click" TabIndex="10"  Content="Return" Background="{DynamicResource MaterialDesignLightSeparatorBackground}" Grid.Column="0" ></Button>
+                        <Button x:Name="VisitSiteForAbout" TabIndex="10" Click="VisitSiteForAbout_Click" Content="Visit Site" Background="{DynamicResource OrangeColor}" Grid.Column="2" ></Button>
+                    </Grid>
+
+                    <TextBlock TextAlignment="Center"  Text="All rights reserved by Morad Studio." TextWrapping="Wrap" FontSize="6"  Margin="10" ></TextBlock>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
+
+</Window>

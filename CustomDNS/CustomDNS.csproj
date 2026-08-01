@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+		
+		<!-- اضافه شده -->
+	</PropertyGroup>
+	<PropertyGroup>
+		<ApplicationIcon>Dictionary\Icon256.ico</ApplicationIcon>
+	</PropertyGroup>
+	<PropertyGroup>
+		<Version>1.0.0</Version>
+		<FileVersion>1.0.0.0</FileVersion>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<PackageIcon>Icon256.png</PackageIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Dictionary\Emblem.ico" />
+		<None Remove="Dictionary\Icon.ico" />
+		<None Remove="Dictionary\Icon256.ico" />
+		<None Remove="FileManager\Fonts\Inter.ttf" />
+		<None Remove="FileManager\Fonts\Vazirmatn.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\Icon\1x\Icon256.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
+		<PackageReference Include="System.Management" Version="9.0.6" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Dictionary\Emblem.ico" />
+		<Resource Include="Dictionary\Icon.ico">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Dictionary\Icon256.ico">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="FileManager\Fonts\Inter.ttf" />
+		<Resource Include="FileManager\Fonts\Vazirmatn.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Page Update="Dictionary\Design\ColoursThemeWhite.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="Dictionary\IconStyles.xaml">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Page>
+	</ItemGroup>
+</Project>
