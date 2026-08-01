@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Icon/Info.png" alt="Custom DNS Main Banner">
+  <img src="Icon/MainBanner.png" alt="Custom DNS Main Banner">
 </p>
 
 ## Custom DNS
