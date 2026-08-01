@@ -16,6 +16,10 @@ Custom DNS is a lightweight and modern Windows application that allows you to sa
 - Includes several popular public DNS providers out of the box.
 - Stores all DNS configurations locally on your device.
 
+<p align="center">
+  <img src="Screenshots/MainAPPConnectedExpanded.png" alt="Custom DNS Main Banner">
+</p>
+
 ## Built-in DNS Providers
 
 - Google DNS
