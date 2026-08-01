@@ -6,9 +6,6 @@
   <img src="Icon/1x/Emblem.png" width="50" height="50" align="center">
   Custom DNS
 </h1>
-
-## Custom DNS
-
 Custom DNS is a lightweight and modern Windows application that allows you to save, organize, and switch between custom DNS servers with ease.
 
 ## Features
