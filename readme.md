@@ -1,7 +1,7 @@
 <p align="center">
   <img src="Icon/Info.png" alt="Custom DNS Banner">
 </p>
-# Custom DNS
+## Custom DNS
 
 Custom DNS is a lightweight and modern Windows application that allows you to save, organize, and switch between custom DNS servers with ease.
 
