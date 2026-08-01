@@ -38,3 +38,9 @@ Custom DNS is a lightweight and modern Windows application that allows you to sa
 - .NET WPF
 - C#
 - MVC Architecture
+
+## Screenshots
+
+| Home | DNS has been changed | DNS List |
+|------|----------|----------|
+| ![](screenshots/MainAPP.png) | ![](screenshots/MainAPPConnected.png) | ![](screenshots/MainAPPConnectedExpanded.png) |
